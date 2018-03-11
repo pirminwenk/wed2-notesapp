@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{pageTitle}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{#if darkMode}}
+      <link rel='stylesheet' href='/stylesheets/darkStyle.css' />
+    {{/if}}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>{{pageTitle}}</h1>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+    <footer>
+      &#169; Copyright by Michelle Kunz, Yannick Zwicker, Pirmin Wenk
+    </footer>
+  </body>
+</html>

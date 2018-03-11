@@ -1,0 +1,48 @@
+<section>
+  <div class="menu">
+    <a href="detail" id="newNote" class="create menu-item">Create new Note</a>
+    <a href="?darkMode={{negate darkMode}}" id="styleSwitcher" class="menu-item">Style Switcher</a>
+  </div>
+  <div class="menu">
+    <a href="?orderBy=finishDate&sortASC={{orderBySortASC 'finishDate'}}" class="{{sortClass 'finishDate'}} menu-item">
+      By finish Date
+    </a>
+    <a href="?orderBy=createDate&sortASC={{orderBySortASC 'createDate'}}" class="{{sortClass 'createDate'}} menu-item">
+      By created Date
+    </a>
+    <a href="?orderBy=importance&sortASC={{orderBySortASC 'importance'}}" class="{{sortClass 'importance'}} menu-item">
+      By importance
+    </a>
+    <a href="?withFinished={{negate withFinished}}" class="menu-item">
+      {{#if withFinished}}Hide{{else}}Show{{/if}} finished
+    </a>
+  </div>
+</section>
+{{#if noteList}}
+  <section>
+    {{#each noteList}}
+      <article>
+        <header class="space-between flex-items-center">
+          <h2>{{title}}</h2>
+          <small>
+            {{#if finishFlag}}<i class="material-icons">done</i>{{else}}{{relativeTime finishDate}}{{/if}}
+          </small>
+        </header>
+        <p>{{description}}</p>
+        <footer class="space-between flex-items-center">
+          <div>
+            {{#times importance}}
+              <i class="material-icons">star</i>
+            {{/times}}
+          </div>
+          <a href="detail/{{_id}}" id="editNote">EDIT</a>
+        </footer>
+      </article>
+    {{/each}}
+  </section>
+{{else}}
+  <section class="empty-box">
+    <i class="material-icons">done_all</i>
+    <h2>Everything is done</h2>
+  </section>
+{{/if}}

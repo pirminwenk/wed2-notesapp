@@ -1,0 +1,36 @@
+<section>
+  <form action="" method="post">
+    <div class="flex">
+      <div class="label"><label for="title">Title</label></div>
+      <div class="input"><input type="text" id="title" name="title" required value="{{note.title}}"/></div>
+    </div>
+    <div class="flex">
+      <div class="label"><label for="description">Description</label></div>
+      <div class="input"><textarea id="description" required name="description">{{note.description}}</textarea></div>
+    </div>
+    <div class="flex">
+      <div class="label"><label for="importance">Importance</label></div>
+      <div class="input"><input type="number" id="importance" name="importance" min="1" max="5" required
+                                value="{{note.importance}}"/></div>
+    </div>
+    <div class="flex">
+      <div class="label"><label for="finishDate">Finished Til</label></div>
+      <div class="input">
+        <input type="date" id="finishDate" name="finishDate" required
+               value="{{#if note.finishDate}}{{note.finishDate}}{{else}}{{today}}{{/if}}"/>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="label"></div>
+      <div class="input flex">
+        <input type="checkbox" id="finishFlag" name="finishFlag" {{checked note.finishFlag}} />
+        <label for="finishFlag">Finished!</label>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button type="submit" class="create">SAVE</button>
+      <a href="/" class="abort">ABORT</a>
+    </div>
+  </form>
+</section>

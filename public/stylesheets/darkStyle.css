@@ -1,0 +1,7 @@
+:root {
+  --background-color: #121c28;
+  --background-color-dark: rgba(57, 67, 80, 0.5);
+  --component-background-color: #1c2836;
+  --action-background-color: rgba(0,0,0,0.12);
+  --font-color: #ffffff;
+}
